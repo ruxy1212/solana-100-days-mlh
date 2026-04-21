@@ -1,0 +1,12 @@
+{
+  "name": "solana-100",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node create-wallet.mjs"
+  },
+  "dependencies": {
+    "@solana/kit": "^6.8.0",
+    "dotenv": "^17.4.2"
+  }
+}
