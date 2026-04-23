@@ -9,5 +9,4 @@
 2. Add `.env`:
    - `KEY=your_key_here`
 3. Start:
-   - `node index.js`
-   - Or `pnpm start`
+   - `node path-to-file.ext`

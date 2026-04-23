@@ -1,0 +1,1 @@
+# Generate a keypair and get devnet SOL
