@@ -23,10 +23,12 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Install day4 dependencies
+        run: pnpm --filter day4 install
+        # - run: pnpm install
+        #     working-directory: folder1/folder2
 
-      - name: Build web app
+      - name: Build day4 app
         run: pnpm --filter day4 build
 
       - name: Deploy
