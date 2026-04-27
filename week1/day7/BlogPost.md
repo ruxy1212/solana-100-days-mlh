@@ -1,0 +1,1 @@
+This week I generated my first Solana keypair, persisted it, and connected a browser wallet to read my devnet balance in a small app. What surprised me most was realizing my identity is not a username in someone’s database; it is a keypair I control. Next I want to turn this into real on-chain interactions and ship something people can use. #100DaysOfSolana
