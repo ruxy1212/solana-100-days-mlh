@@ -5,7 +5,7 @@ const rpc = createSolanaRpc(devnet("https://api.devnet.solana.com"));
 
 // Replace this with the wallet address you created on Day 1
 const targetAddress = address(
-  // "E71ChrMBQ1JoiPnabuDZAmd5CXRRMvaSDt4oa3TXPjMr"
+  // "E71ChrMBQ1JoiPnabuDZAmd5CXRRMvaSDt4oa3TXPjMr" // Day 1 wallet
   "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb" // Token 2022
 );
 
