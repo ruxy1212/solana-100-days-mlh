@@ -1,0 +1,1 @@
+This week I queried on-chain data, built a dashboard, and mapped traditional databases to Solana's account model. The biggest shift: I don't need a backend. The RPC is the API. The ledger is the database. Wallets are auth. Same address, different networks, same architecture. It finally made sense. #100DaysOfSolana
