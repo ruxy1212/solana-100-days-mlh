@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@solana-program/system':
+        specifier: ^0.12.0
+        version: 0.12.0(@solana/kit@6.8.0)
       '@solana/kit':
         specifier: ^6.8.0
         version: 6.8.0
@@ -16,6 +19,11 @@ importers:
         version: 17.4.2
 
 packages:
+
+  '@solana-program/system@0.12.0':
+    resolution: {integrity: sha512-ZnAAWeGVMWNtJhw3GdifI2HnhZ0A0H0qs8tBkcFvxp/8wIavvO+GOM4Jd0N22u2+Lni2zcwvcrxrsxj6Mjphng==}
+    peerDependencies:
+      '@solana/kit': ^6.1.0
 
   '@solana/accounts@6.8.0':
     resolution: {integrity: sha512-rXjFYVopaEw1H2PTBQbRjKr+0i4EFuBEhRT5E0dI4cMaabSb4KKypC2gaf47+6cjU3hMlM1AcsyIs72/MqAVBw==}
@@ -418,6 +426,10 @@ packages:
         optional: true
 
 snapshots:
+
+  '@solana-program/system@0.12.0(@solana/kit@6.8.0)':
+    dependencies:
+      '@solana/kit': 6.8.0
 
   '@solana/accounts@6.8.0':
     dependencies:
