@@ -1,0 +1,3 @@
+# Explore Solana Explorer
+
+And here's what really caught my attention: I switched the Explorer to mainnet and searched for the Token-2022 program. I saw millions of transactions flowing through it. I watched the transaction count tick up in real-time. I clicked on a random transaction and saw it involved dozens of accounts, all owned by different programs, all coordinating atomically in a single transaction.
