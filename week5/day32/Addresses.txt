@@ -1,0 +1,5 @@
+Mint Address: Ctaczm9B7bSMpWajZbKJ1R5dR1yWAN2c6g5L9cVfQcDz
+Token Account: 4kX2qptnkCNFmbbRSmuczYwxVqFRWGPtGvkQSp59FF7k
+Second Token Account: CzYD4UEVwKDHwtLRrfRgsBcRDQD4cZKiWSanSsfvMYpy
+
+spl-token initialize-metadata Ctaczm9B7bSMpWajZbKJ1R5dR1yWAN2c6g5L9cVfQcDz "ReinforceCoin" "RFC" "https://raw.githubusercontent.com/solana-developers/opos-asset/main/assets/CompressedCoil/metadata.json"
