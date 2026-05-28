@@ -2,3 +2,36 @@ Mint Address: 9hYkWU9w9ufMbGfz7xo16iaoUpzf5dLA9GDY2kUvus5H
 
 Token Account: Hy5yUpbK5hEdWnuN7uAGJHxF8VapjK4GKTjzvuyENkar
 Recipient Token Account: B2HBUNWszAMXG5ons1XWiAQPYofFeNza6Fao1tcHfNJC
+
+Account Display Result:
+```
+SPL Token Mint
+  Address: 9hYkWU9w9ufMbGfz7xo16iaoUpzf5dLA9GDY2kUvus5H
+  Program: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+  Supply: 100000
+  Decimals: 2
+  Mint authority: GeyrRJRhgFEcaucgR4wfZHuBseyTS21b71EfARfoWzxq
+  Freeze authority: (not set)
+Extensions
+  Interest-bearing:
+    Current rate: 5bps
+    Average rate: 5bps
+    Rate authority: GeyrRJRhgFEcaucgR4wfZHuBseyTS21b71EfARfoWzxq
+  Transfer fees:
+    Current fee: 100bps
+    Current maximum: 50000
+    Config authority: GeyrRJRhgFEcaucgR4wfZHuBseyTS21b71EfARfoWzxq
+    Withdrawal authority: GeyrRJRhgFEcaucgR4wfZHuBseyTS21b71EfARfoWzxq
+    Withheld fees: 0
+  Metadata Pointer:
+    Authority: GeyrRJRhgFEcaucgR4wfZHuBseyTS21b71EfARfoWzxq
+    Metadata address: 9hYkWU9w9ufMbGfz7xo16iaoUpzf5dLA9GDY2kUvus5H
+  Metadata:
+    Update Authority: GeyrRJRhgFEcaucgR4wfZHuBseyTS21b71EfARfoWzxq
+    Mint: 9hYkWU9w9ufMbGfz7xo16iaoUpzf5dLA9GDY2kUvus5H
+    Name: ArcCoin
+    Symbol: ARC
+    URI: https://raw.githubusercontent.com/solana-developers/opos-asset/main/assets/CompressedCoil/metadata.json
+```
+
+Data Length: 599

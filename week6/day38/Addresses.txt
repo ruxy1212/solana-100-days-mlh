@@ -1,0 +1,18 @@
+Frozen Token Challenge Mint Address: EdfVw23vaPqjqY9hB9BVqKsqzCyMf2tDiANFMRS6juTD
+Token Account: 7oW9ggEpsyy3K3DFAubifbkCfVJSyxaXzG6RNxqdYh4v
+Second Token Account: 9SVUXfthUJeToPvTtTbwveCAHPMG3wvirpsRaxfg8mwP
+
+Account Display Result: 
+```
+SPL Token Mint
+  Address: EdfVw23vaPqjqY9hB9BVqKsqzCyMf2tDiANFMRS6juTD
+  Program: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+  Supply: 100000000000
+  Decimals: 9
+  Mint authority: GeyrRJRhgFEcaucgR4wfZHuBseyTS21b71EfARfoWzxq
+  Freeze authority: GeyrRJRhgFEcaucgR4wfZHuBseyTS21b71EfARfoWzxq
+Extensions
+  Default state: Frozen
+```
+
+Data Length: 171

@@ -1,3 +1,21 @@
 Mint Address: 4mfb53CFzwaLj67BtqYKLi7a9FLzDMh3yt3KmuG4HETw
 
 Token Account: Fh8cCJ2mKMtUtxE5D5YEVZqdJ6h8e1mLSztkceQugiUs
+
+Account Display Result:
+```
+SPL Token Mint
+  Address: 4mfb53CFzwaLj67BtqYKLi7a9FLzDMh3yt3KmuG4HETw
+  Program: TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb
+  Supply: 1000000000000
+  Decimals: 9
+  Mint authority: GeyrRJRhgFEcaucgR4wfZHuBseyTS21b71EfARfoWzxq
+  Freeze authority: (not set)
+Extensions
+  Interest-bearing:
+    Current rate: 15000bps
+    Average rate: 500bps
+    Rate authority: GeyrRJRhgFEcaucgR4wfZHuBseyTS21b71EfARfoWzxq
+```
+
+Data Length: 222
