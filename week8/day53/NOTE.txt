@@ -1,0 +1,5 @@
+Transfer Fee: This extension automatically deducts a small percentage from every transaction and holds it in the recipient's account until the token creator withdraws it.
+
+Interest-Bearing: This extension causes the displayed balance of a token to grow over time based on a set rate, rewarding holders without needing to send them new tokens manually.
+
+The transfer fee extension used in Day50 deducts a percentage from each transfer and then allows the issuer to withdraw the accumulated fees, while the interest-bearing extension from Day52 automatically increases token balances over time based on a configured interest rate.

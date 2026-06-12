@@ -1,0 +1,5 @@
+Mint Address: 3PWCwuiPauNhYxwArDGaRizKLpJHETLS7RNRqHL1AQvm
+
+Token Account: ESgcyJZbq6J4soAL8qVokyAod8i4FdTPR5Ym6n9Xqn3J
+
+Recipient Token Account: AJ7VezqJYW3m8sZD4x1RET121ce9gqxd3ymQ58kBEzy3
