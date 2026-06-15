@@ -14,30 +14,28 @@ Each day is a small, concrete step. Together, they add up to real understanding.
 
 By the end, you won’t just understand Solana, you’ll be ready to build something useful with it.
 
-## Schedule
+## The Roadmap
 
-> Day 1: 2026-04-20
+The 100 Days are divided into four major themes, which we call **Epochs**. Each Epoch consists of 4 weeks of focused learning and building.
 
-> Day 100: 2026-07-26
+| Epoch | Theme | Status | Action |
+| :--- | :--- | :--- | :--- |
+| **Epoch 1** | Reading and Writing Data | 🟢 28/28 Days | [Enter Epoch 1 →](EPOCH_ONE.md) |
+| **Epoch 2** | Owning and Moving Data | 🟢 28/28 Days | [Enter Epoch 2 →](EPOCH_TWO.md) |
+| **Epoch 3** | Building Programs | ⚪ 0/28 Days | *Coming Soon* |
+| **Epoch 4** | Shipping and Exploring | ⚪ 0/28 Days | *Coming Soon* |
 
-The 100 Days are divided into four major themes, which we call Epochs:
+### The Weekly Rhythm
 
-- Epoch 1 — Reading and Writing Data
-- Epoch 2 — Owning and Moving Data (Tokens and Value)
-- Epoch 3 — Building Programs and Contracts
-- Epoch 4 — Shipping and Exploring
+Every week follows a structured cycle to ensure deep understanding:
 
-> Within the Epochs, you’ll work through a series of week-long arcs, each centered on a specific topic. The structure is designed to help you build understanding step by step, then reinforce it through practice and reflection.
-
-### Every week follows the same rhythm:
-
-- ▶️ Try (Monday): Understand the idea
-- 🛠️ Build (Tuesday): Get it working
-- 📈 Stretch (Wednesday): Go further
-- 📌 Reinforce (Thursday): Make it stick
-- 🧪 Experiment (Friday): Try your own approach
-- 📝 Document (Saturday): Share your work on DEV
-- 🚀 Amplify (Sunday): Learn from others and get feedback
+- **Monday** ▶️ Try: Understand the core concept.
+- **Tuesday** 🛠️ Build: Get the basic implementation working.
+- **Wednesday** 📈 Stretch: Push the boundaries and add features.
+- **Thursday** 📌 Reinforce: Review and solidify the logic.
+- **Friday** 🧪 Experiment: Try your own creative approach.
+- **Saturday** 📝 Document: Share your findings on DEV.to.
+- **Sunday** 🚀 Amplify: Engage with the community.
 
 ## How to Run Locally
 
