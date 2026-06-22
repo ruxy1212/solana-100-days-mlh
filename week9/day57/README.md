@@ -46,6 +46,4 @@ Compile the scaffolded program to verify the toolchain:
 anchor build
 ```
 
-> NB: You might need to manually copy the compiled .so file (as was my case), using `cp target/sbpf-solana-solana/release/counter.so target/deploy/counter.so`, and rerun the build command above.
-
 This produces the compiled `.so` binary and the IDL (Interface Definition Language) JSON file in the `target/` directory.
