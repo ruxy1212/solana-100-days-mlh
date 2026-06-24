@@ -36,6 +36,10 @@ pub mod counter {
         counter.count = counter.count.checked_add(1).unwrap();
         Ok(())
     }
+
+    pub fn close_counter(_ctx: Context<CloseCounter>) -> Result<()> {
+        Ok(())
+    }
 }
 
 #[derive(Accounts)]
@@ -101,6 +105,20 @@ pub struct Increment<'info> {
         has_one = user,
     )]
     pub counter: Account<'info, Counter>,
+    pub user: Signer<'info>,
+}
+
+#[derive(Accounts)]
+pub struct CloseCounter<'info> {
+    #[account(
+        mut,
+        close = user,
+        seeds = [b"counter", user.key().as_ref()],
+        bump = counter.bump,
+        has_one = user,
+    )]
+    pub counter: Account<'info, Counter>,
+    #[account(mut)]
     pub user: Signer<'info>,
 }
 
