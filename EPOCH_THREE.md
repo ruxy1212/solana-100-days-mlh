@@ -20,3 +20,18 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 | 63 | [Turn your counter program into a post that lands](week9/day63/) <br> <small>Short social post teasing the blog with a code snippet and link</small> | 🚀 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019ed04c-b375-c55d-55cd-ae40182ad292) |
 
 </details>
+
+<details>
+<summary><b>Week 10: PDAs in Depth — 5/7 Completed</b></summary>
+
+| Day | Challenge | Rhythm | Links |
+| :--- | :--- | :--- | :--- |
+| 64 | [Derive your first PDA from seeds](week10/day64/) <br> <small>Write a script that calls `findProgramAddressSync` with different seed combinations and confirms that the same seeds always produce the same address.</small> | ▶️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019eefab-9ea1-8eb3-2534-15e1ae96435d) |
+| 65 | [Build a per-user counter with PDA state](week10/day65/) <br> <small>Rewrite the counter program so each wallet owns its own PDA-backed state account, derived from `["counter", user_pubkey]` — no keypair tracking required.</small> | 🛠️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019eefe7-365e-7146-2928-4ce4f6270721) |
+| 66 | [Add a config PDA and constraints that hold two accounts together](week10/day66/) <br> <small>Introduce a `Config` singleton PDA with an admin and a pause flag, wire it into `increment` with a `constraint` guard, and gate `set_paused` with `has_one = admin`.</small> | 📌 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019ef011-f8d2-14bc-753f-f67456e0039c) |
+| 67 | [Close a PDA account and reclaim rent](week10/day67/) <br> <small>Add a `close_counter` instruction that uses Anchor's `close = user` attribute to drain lamports back to the owner and zero the account — handler body is empty.</small> | 💸 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019ef02b-7b80-7dc2-e9b7-8a0875c844b1) |
+| 68 | [Try to make two PDAs share an address](week10/day68/) <br> <small>Explore PDA collision mechanics: near-miss seed variants, global vs. per-user address collisions, and a deliberate spoof attempt.</small> | 🧪 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019ef03d-6aed-7a5e-bc15-fb93f3992732) |
+| 69 | _(coming soon)_ | — | — |
+| 70 | _(coming soon)_ | — | — |
+
+</details>
