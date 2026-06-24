@@ -2,4 +2,11 @@ node_modules
 .env
 
 wallet.json
+.anchor
+.DS_Store
+target
+**/*.rs.bk
+test-ledger
+.yarn
+.surfpool
 drafts/
