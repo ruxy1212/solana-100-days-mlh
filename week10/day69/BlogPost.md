@@ -1,4 +1,4 @@
-# A Dive into PDAs on Solana
+# A Mental Dive into Solana PDAs
 
 **Tags:** 100daysofsolana, rust, anchor, web3
 
@@ -6,7 +6,7 @@
 
 > On Solana, programs are stateless. So if your program needs to remember something per user, per config, per anything, it needs a deterministic address it can find again later without storing it anywhere. PDAs are that address.
 
-## The Mental Picture
+## The Background Picture
 
 From the web2 world, a PDA (or Program Derived Address) is like a database primary key you compute from the row's logical identity. But instead of `INSERT INTO counters (user_id) RETURNING id`, you run a hash over `["counter", user_pubkey, program_id]` and that hash *is* the address or PDA. It requires no lookup table and no coordination. The client and the program independently arrive at the same address every time.
 
