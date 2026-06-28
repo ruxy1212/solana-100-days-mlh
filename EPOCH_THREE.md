@@ -32,6 +32,21 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 | 67 | [Close a PDA account and reclaim rent](week10/day67/) <br> <small>Add a `close_counter` instruction that uses Anchor's `close = user` attribute to drain lamports back to the owner and zero the account — handler body is empty.</small> | 💸 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019ef02b-7b80-7dc2-e9b7-8a0875c844b1) |
 | 68 | [Try to make two PDAs share an address](week10/day68/) <br> <small>Explore PDA collision mechanics: near-miss seed variants, global vs. per-user address collisions, and a deliberate spoof attempt.</small> | 🧪 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019ef03d-6aed-7a5e-bc15-fb93f3992732) |
 | 69 | [Write a PDA explainer](week10/day69/) <br> <small>Post covering the PDA mental model, seed anatomy, bump mechanics, the account lifecycle, and four lessons for past-me.</small> | 📝 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f0424-79a6-431c-f492-9aa6ced5f3ac) |
-| 70 | _(coming soon)_ | — | — |
+| 70 | [Share your PDA mental model on social media](week10/day70/) <br> <small>Short social post teasing the blog with a code snippet and link</small> | 🚀 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f04a8-8ebc-44f2-ec7d-d3e642ec1d97) |
+
+</details>
+
+<details>
+<summary><b>Week 11: !!Arc Topic here — 0/7 Completed</b></summary>
+
+| Day | Challenge | Rhythm | Links |
+| :--- | :--- | :--- | :--- |
+| 71 | _(coming soon)_ | — | — |
+| 72 | _(coming soon)_ | — | — |
+| 73 | _(coming soon)_ | — | — |
+| 74 | _(coming soon)_ | — | — |
+| 75 | _(coming soon)_ | — | — |
+| 76 | _(coming soon)_ | — | — |
+| 77 | _(coming soon)_ | — | — |
 
 </details>
