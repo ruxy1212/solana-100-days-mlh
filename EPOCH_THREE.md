@@ -7,7 +7,7 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 ---
 
 <details open>
-<summary><b>Week 9: Getting Started with Anchor — 7/7 Completed</b></summary>
+<summary><b>Arc 9: Getting Started with Anchor — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
@@ -22,7 +22,7 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 </details>
 
 <details>
-<summary><b>Week 10: PDAs in Depth — 5/7 Completed</b></summary>
+<summary><b>Arc 10: PDAs in Depth — 5/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
@@ -37,7 +37,7 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 </details>
 
 <details>
-<summary><b>Week 11: !!Arc Topic here — 0/7 Completed</b></summary>
+<summary><b>Arc 11: Cross-Program Invocations — 0/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
@@ -50,3 +50,7 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 | 77 | _(coming soon)_ | — | — |
 
 </details>
+
+---
+
+[← Back to Roadmap](README.md)

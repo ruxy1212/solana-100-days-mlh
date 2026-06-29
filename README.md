@@ -16,18 +16,18 @@ By the end, you won’t just understand Solana, you’ll be ready to build somet
 
 ## The Roadmap
 
-The 100 Days are divided into four major themes, which we call **Epochs**. Each Epoch consists of 4 weeks of focused learning and building.
+The 100 Days are divided into four major themes, which we call **Epochs**. Each Epoch consists of 4 **Arcs**. An Arc is a week of focused learning and building.
 
 | Epoch | Theme | Status | Action |
 | :--- | :--- | :--- | :--- |
 | **Epoch 1** | Reading and Writing Data | 🟢 28/28 Days | [Enter Epoch 1 →](EPOCH_ONE.md) |
 | **Epoch 2** | Owning and Moving Data | 🟢 28/28 Days | [Enter Epoch 2 →](EPOCH_TWO.md) |
-| **Epoch 3** | Building Programs | ⚪ 0/28 Days | *Coming Soon* |
+| **Epoch 3** | Building Programs | 🟠 15/28 Days | [Enter Epoch 3 →](EPOCH_THREE.md) |
 | **Epoch 4** | Shipping and Exploring | ⚪ 0/28 Days | *Coming Soon* |
 
-### The Weekly Rhythm
+### The Weekly Rhythm of an Arc
 
-Every week follows a structured cycle to ensure deep understanding:
+Every Arc follows a structured cycle to ensure deep understanding:
 
 - **Monday** ▶️ Try: Understand the core concept.
 - **Tuesday** 🛠️ Build: Get the basic implementation working.

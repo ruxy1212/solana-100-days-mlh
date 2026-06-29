@@ -1,52 +1,6 @@
 import * as anchor from "@anchor-lang/core";
 import { Program, web3 } from "@anchor-lang/core";
-// import { SolMover } from "../target/types/sol_mover.js";
-
-export type SolMover = {
-  "address": "7TNpsJpEJCmjobfRtPuzwf5pJXT4XtnEjNRmS7UvDGcY",
-  "metadata": {
-    "name": "solMover",
-    "version": "0.1.0",
-    "spec": "0.1.0",
-    "description": "Created with Anchor"
-  },
-  "instructions": [
-    {
-      "name": "solTransfer",
-      "discriminator": [
-        135,
-        254,
-        247,
-        202,
-        217,
-        48,
-        184,
-        165
-      ],
-      "accounts": [
-        {
-          "name": "sender",
-          "writable": true,
-          "signer": true
-        },
-        {
-          "name": "recipient",
-          "writable": true
-        },
-        {
-          "name": "systemProgram",
-          "address": "11111111111111111111111111111111"
-        }
-      ],
-      "args": [
-        {
-          "name": "amount",
-          "type": "u64"
-        }
-      ]
-    }
-  ]
-};
+import { SolMover } from "../target/types/sol_mover.js";
 
 const { Keypair, LAMPORTS_PER_SOL } = web3;
 const { BN } = anchor.default;

@@ -7,7 +7,7 @@ Welcome to Epoch 2. This phase is all about the Solana Token Program and Token-2
 ---
 
 <details open>
-<summary><b>Week 5: Token Fundamentals and Token-2022 — 7/7 Completed</b></summary>
+<summary><b>Arc 5: Token Fundamentals and Token-2022 — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
@@ -22,7 +22,7 @@ Welcome to Epoch 2. This phase is all about the Solana Token Program and Token-2
 </details>
 
 <details>
-<summary><b>Week 6: Advanced Token Extensions — 7/7 Completed</b></summary>
+<summary><b>Arc 6: Advanced Token Extensions — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
@@ -37,7 +37,7 @@ Welcome to Epoch 2. This phase is all about the Solana Token Program and Token-2
 </details>
 
 <details>
-<summary><b>Week 7: The World of NFTs — 7/7 Completed</b></summary>
+<summary><b>Arc 7: The World of NFTs — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
@@ -52,7 +52,7 @@ Welcome to Epoch 2. This phase is all about the Solana Token Program and Token-2
 </details>
 
 <details>
-<summary><b>Week 8: Mastering Token-2022 — 7/7 Completed</b></summary>
+<summary><b>Arc 8: Mastering Token-2022 — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
