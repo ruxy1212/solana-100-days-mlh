@@ -1,10 +1,10 @@
 import * as anchor from "@anchor-lang/core";
 import { Program } from "@anchor-lang/core";
-// import { Counter } from "../target/types/counter.js";
+import { Counter } from "../target/types/counter.js";
 import { PublicKey } from "@solana/web3.js";
 import { assert } from "chai";
 
-type Counter = {
+type Countesr = {
   "address": "9zEKwVUB5iWrzw8St3cd6tyz4FS64JaaJt3cShXaT1W7",
   "metadata": {
     "name": "counter",
