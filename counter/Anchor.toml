@@ -9,13 +9,14 @@ skip-lint = false
 [programs.localnet]
 counter = "9zEKwVUB5iWrzw8St3cd6tyz4FS64JaaJt3cShXaT1W7"
 sol-mover = "7TNpsJpEJCmjobfRtPuzwf5pJXT4XtnEjNRmS7UvDGcY"
+token-cpi = "EcFqW9ZeahZg4Hy5F4MM1KGuJKz2STirBRBNbjAKcm3j"
 
 [provider]
 cluster = "localnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
-test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/sol-mover.ts"
+test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/token-cpi.ts"
 
 [hooks]
 
