@@ -1,148 +1,75 @@
 use anchor_lang::prelude::*;
+use anchor_lang::system_program::{transfer, Transfer};
 
 declare_id!("9zEKwVUB5iWrzw8St3cd6tyz4FS64JaaJt3cShXaT1W7");
 
 #[program]
-pub mod counter {
+pub mod vault {
     use super::*;
 
-    pub fn init_config(ctx: Context<InitConfig>) -> Result<()> {
-        let config = &mut ctx.accounts.config;
-        config.admin = ctx.accounts.admin.key();
-        config.paused = false;
-        config.total_counters = 0;
-        config.bump = ctx.bumps.config;
+    pub fn deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {
+        // The user signed the outer transaction, so a plain CPI is enough.
+        // Anchor 1.0's CpiContext::new takes the program's Pubkey (`.key()`),
+        // not its AccountInfo, so use `.key()` here and on every CpiContext::new.
+        let cpi_ctx = CpiContext::new(
+            ctx.accounts.system_program.key(),
+            Transfer {
+                from: ctx.accounts.user.to_account_info(),
+                to: ctx.accounts.vault.to_account_info(),
+            },
+        );
+        transfer(cpi_ctx, amount)?;
         Ok(())
     }
 
-    pub fn set_paused(ctx: Context<SetPaused>, paused: bool) -> Result<()> {
-        ctx.accounts.config.paused = paused;
-        Ok(())
-    }
+    pub fn withdraw(ctx: Context<Withdraw>, amount: u64) -> Result<()> {
+        let user_key = ctx.accounts.user.key();
+        let bump = ctx.bumps.vault;
 
-    pub fn init_counter(ctx: Context<InitCounter>) -> Result<()> {
-        let counter = &mut ctx.accounts.counter;
-        counter.user = ctx.accounts.user.key();
-        counter.count = 0;
-        counter.bump = ctx.bumps.counter;
+        // The recipe for the vault: literal seed, owner key, canonical bump.
+        let signer_seeds: &[&[&[u8]]] = &[&[b"vault", user_key.as_ref(), &[bump]]];
 
-        let config = &mut ctx.accounts.config;
-        config.total_counters = config.total_counters.checked_add(1).unwrap();
-        Ok(())
-    }
+        // The vault has no private key, so the program signs for it.
+        let cpi_ctx = CpiContext::new(
+            ctx.accounts.system_program.key(),
+            Transfer {
+                from: ctx.accounts.vault.to_account_info(),
+                to: ctx.accounts.user.to_account_info(),
+            },
+        )
+        .with_signer(signer_seeds);
 
-    pub fn increment(ctx: Context<Increment>) -> Result<()> {
-        let counter = &mut ctx.accounts.counter;
-        counter.count = counter.count.checked_add(1).unwrap();
-        Ok(())
-    }
-
-    pub fn close_counter(_ctx: Context<CloseCounter>) -> Result<()> {
+        transfer(cpi_ctx, amount)?;
         Ok(())
     }
 }
 
 #[derive(Accounts)]
-pub struct InitConfig<'info> {
-    #[account(
-        init,
-        payer = admin,
-        space = 8 + Config::INIT_SPACE,
-        seeds = [b"config"],
-        bump
-    )]
-    pub config: Account<'info, Config>,
+pub struct Deposit<'info> {
     #[account(mut)]
-    pub admin: Signer<'info>,
+    pub user: Signer<'info>,
+
+    #[account(
+        mut,
+        seeds = [b"vault", user.key().as_ref()],
+        bump,
+    )]
+    pub vault: SystemAccount<'info>,
+
     pub system_program: Program<'info, System>,
 }
 
 #[derive(Accounts)]
-pub struct SetPaused<'info> {
-    #[account(
-        mut,
-        seeds = [b"config"],
-        bump = config.bump,
-        has_one = admin,
-    )]
-    pub config: Account<'info, Config>,
-    pub admin: Signer<'info>,
-}
-
-#[derive(Accounts)]
-pub struct InitCounter<'info> {
-    #[account(
-        mut,
-        seeds = [b"config"],
-        bump = config.bump,
-    )]
-    pub config: Account<'info, Config>,
-    #[account(
-        init,
-        payer = user,
-        space = 8 + Counter::INIT_SPACE,
-        seeds = [b"counter", user.key().as_ref()],
-        bump
-    )]
-    pub counter: Account<'info, Counter>,
+pub struct Withdraw<'info> {
     #[account(mut)]
     pub user: Signer<'info>,
+
+    #[account(
+        mut,
+        seeds = [b"vault", user.key().as_ref()],
+        bump,
+    )]
+    pub vault: SystemAccount<'info>,
+
     pub system_program: Program<'info, System>,
-}
-
-#[derive(Accounts)]
-pub struct Increment<'info> {
-    #[account(
-        seeds = [b"config"],
-        bump = config.bump,
-        constraint = !config.paused @ CounterError::Paused,
-    )]
-    pub config: Account<'info, Config>,
-    #[account(
-        mut,
-        seeds = [b"counter", user.key().as_ref()],
-        bump = counter.bump,
-        has_one = user,
-    )]
-    pub counter: Account<'info, Counter>,
-    pub user: Signer<'info>,
-}
-
-#[derive(Accounts)]
-pub struct CloseCounter<'info> {
-    #[account(
-        mut,
-        close = user,
-        seeds = [b"counter", user.key().as_ref()],
-        bump = counter.bump,
-        has_one = user,
-    )]
-    pub counter: Account<'info, Counter>,
-    #[account(mut)]
-    pub user: Signer<'info>,
-}
-
-#[account]
-#[derive(InitSpace)]
-pub struct Counter {
-    pub user: Pubkey,
-    pub count: u64,
-    pub bump: u8,
-}
-
-#[account]
-#[derive(InitSpace)]
-pub struct Config {
-    pub admin: Pubkey,
-    pub paused: bool,
-    pub total_counters: u64,
-    pub bump: u8,
-}
-
-#[error_code]
-pub enum CounterError {
-    #[msg("counter overflow")]
-    Overflow,
-    #[msg("Increments are currently paused")]
-    Paused,
 }
