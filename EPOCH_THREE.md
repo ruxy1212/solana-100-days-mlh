@@ -37,15 +37,15 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 </details>
 
 <details>
-<summary><b>Arc 11: Cross-Program Invocations — 2/7 Completed</b></summary>
+<summary><b>Arc 11: Cross-Program Invocations — 5/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
 | 71 | [Move SOL from inside your program with a CPI](week11/day71/) <br> <small>Write an instruction in your own Anchor program that calls the System Program's transfer instruction to send SOL from a signer to a recipient.</small> | ▶️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f137c-fad9-d4c3-1645-e60101686d4b) |
 | 72 | [Mint Token-2022 tokens from inside your program](week11/day72/) <br> <small>Perform a CPI from your Anchor program to the Token-2022 program to mint tokens directly into a destination token account.</small> | 🛠️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f1411-f45c-f3ea-c369-7d3fccce3e9e) |
-| 73 | _(coming soon)_ | — | — |
-| 74 | _(coming soon)_ | — | — |
-| 75 | _(coming soon)_ | — | — |
+| 73 | [Withdraw SOL from a vault your program signs for](week11/day73/) <br> <small>Add deposit and withdraw instructions around a vault PDA, with the withdraw CPI signed by the program through PDA seeds.</small> | 💸 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f1439-7cef-b445-1226-94ae3bfd1656) |
+| 74 | [Make one of your programs call the other](week11/day74/) <br> <small>Deploy a counter program and a caller program, then use a CPI to increment the counter through the caller.</small> | 🧩 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f17eb-4a8d-1431-746a-0b2e037b6c31) |
+| 75 | [Read a CPI failure like a sentence](week11/day75/) <br> <small>Break the Day 73 and Day 74 CPI flows on purpose and map each runtime log to the real cause.</small> | 🧪 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f1806-4c0d-27a9-66f4-599a3c4c4f79) |
 | 76 | _(coming soon)_ | — | — |
 | 77 | _(coming soon)_ | — | — |
 
