@@ -22,7 +22,7 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 </details>
 
 <details>
-<summary><b>Arc 10: PDAs in Depth — 5/7 Completed</b></summary>
+<summary><b>Arc 10: PDAs in Depth — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
