@@ -47,16 +47,16 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 | 74 | [Make one of your programs call the other](week11/day74/) <br> <small>Deploy a counter program and a caller program, then use a CPI to increment the counter through the caller.</small> | 🧩 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f17eb-4a8d-1431-746a-0b2e037b6c31) |
 | 75 | [Read a CPI failure like a sentence](week11/day75/) <br> <small>Break the Day 73 and Day 74 CPI flows on purpose and map each runtime log to the real cause.</small> | 🧪 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f1806-4c0d-27a9-66f4-599a3c4c4f79) |
 | 76 | [Write the CPI explainer you wish you had on day 71](week11/day76/) <br> <small>A short, opinionated dev.to post about the CPI pattern.</small> | 📝 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f1826-6ce3-acfb-f786-2f34571083f4) |
-| 77 | [Share your CPI mental model on social media](week11/day77/) <br> <small>Short social post teasing the CPI blog with a code snippet and link.</small> | 🚀 | — |
+| 77 | [Share your CPI mental model on social media](week11/day77/) <br> <small>Short social post teasing the CPI blog with a code snippet and link.</small> | 🚀 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f1835-8e6d-27d6-4264-d40d141c8257) |
 
 </details>
 
 <details>
-<summary><b>Arc 12: Advanced Testing and Security — 0/7 Completed</b></summary>
+<summary><b>Arc 12: Advanced Testing and Security — 1/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
-| 78 | _(coming soon)_ | — | — |
+| 78 | [Audit Your Own Code](week12/day78/) <br> <small>Produce a clean inventory of every account, plus creating a findings table</small> | ▶️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f3844-b0ad-0853-b56e-7811acca66cd) |
 | 79 | _(coming soon)_ | — | — |
 | 80 | _(coming soon)_ | — | — |
 | 81 | _(coming soon)_ | — | — |
