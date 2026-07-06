@@ -22,7 +22,7 @@ Welcome to Epoch 2. This phase is all about the Solana Token Program and Token-2
 </details>
 
 <details>
-<summary><b>Arc 6: Advanced Token Extensions — 7/7 Completed</b></summary>
+<summary><b>Arc 6: SPL Tokens (Advanced Extensions) — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
@@ -37,7 +37,7 @@ Welcome to Epoch 2. This phase is all about the Solana Token Program and Token-2
 </details>
 
 <details>
-<summary><b>Arc 7: The World of NFTs — 7/7 Completed</b></summary>
+<summary><b>Arc 7: NFTs and Digital Assets — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |

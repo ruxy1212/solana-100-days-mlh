@@ -7,7 +7,7 @@ Welcome to Epoch 1. In these first 28 days, we focus on the fundamentals: unders
 ---
 
 <details open>
-<summary><b>Arc 1: The Basics of Solana Accounts — 7/7 Completed</b></summary>
+<summary><b>Arc 1: Identity and Your First Wallet — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
@@ -22,7 +22,7 @@ Welcome to Epoch 1. In these first 28 days, we focus on the fundamentals: unders
 </details>
 
 <details>
-<summary><b>Arc 2: Reading On-Chain Data — 7/7 Completed</b></summary>
+<summary><b>Arc 2: Reading the Blockchain — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
@@ -37,7 +37,7 @@ Welcome to Epoch 1. In these first 28 days, we focus on the fundamentals: unders
 </details>
 
 <details>
-<summary><b>Arc 3: The Transaction Lifecycle — 7/7 Completed</b></summary>
+<summary><b>Arc 3: Transactions and State Changes — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
