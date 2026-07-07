@@ -6,13 +6,13 @@
 |---|---|---|---|---|---|
 | InitConfig | config | `Account<'info, Config>` (init) | Yes - program-owned | n/a - not an authority account | ✅ |
 | InitConfig | admin | `Signer<'info>` | n/a - no data read from it | Yes - Signer | ✅ |
-| InitConfig | system_program | `Program<'info, T>` | n/a - not a data account you trust | n/a - not an authorizing account | ✅ |
+| InitConfig | system_program | `Program<'info, System>` | n/a - not a data account you trust | n/a - not an authorizing account | ✅ |
 | SetPaused | config | `Account<'info, Config>` + seeds/bump | Yes - owner check + PDA derivation | n/a - not an authority account | ✅ |
 | SetPaused | admin | `Signer<'info>` | n/a - no data read from it | Yes - Signer, matched to `config.admin` via `has_one` | ✅ |
 | InitCounter | config | `Account<'info, Config>` + seeds/bump | Yes - owner check + PDA derivation | n/a - not an authority account | ✅ |
 | InitCounter | counter | `Account<'info, Counter>` (init) | Yes - new init, program-owned | n/a — not an authority account | ✅ |
 | InitCounter | user | `Signer<'info>` (payer) | n/a - no data read from it | Yes — Signer | ✅ |
-| InitCounter | system_program | `Program<'info, T>` | n/a - not a data account you trust | n/a - not an authorizing account | ✅ |
+| InitCounter | system_program | `Program<'info, System>` | n/a - not a data account you trust | n/a - not an authorizing account | ✅ |
 | Increment | config | `Account<'info, Config>` + `constraint = !config.paused` | Yes - owner check + PDA derivation | n/a — not an authority account | ✅ |
 | Increment | counter | `Account<'info, Counter>` + seeds/bump + `has_one = user` | Yes - owner check + PDA derivation | n/a — this is the data account, not the authority | ✅ |
 | Increment | user | `Signer<'info>` | n/a — no data read from it | Yes - Signer, matched to `counter.user` via `has_one` | ✅ |
@@ -26,18 +26,18 @@
 
 | Account | Type | Question failed | Consequences |
 |---|---|---|---|
-| InitConfig.config | `Account<'info, Config>` | None | ✅ None |
+| InitConfig.config | `Account<'info, T>` | None | ✅ None |
 | InitConfig.admin | `Signer<'info>` | None | ✅ None |
-| InitConfig.system_program | `Program<'info, System>` | None | ✅ None |
-| SetPaused.config | `Account<'info, Config>` | None | ✅ None |
+| InitConfig.system_program | `Program<'info, T>` | None | ✅ None |
+| SetPaused.config | `Account<'info, T>` | None | ✅ None |
 | SetPaused.admin | `Signer<'info>` | None | ✅ None |
-| InitCounter.config | `Account<'info, Config>` | None | ✅ None |
-| InitCounter.counter | `Account<'info, Counter>` | None | ✅ None |
+| InitCounter.config | `Account<'info, T>` | None | ✅ None |
+| InitCounter.counter | `Account<'info, T>` | None | ✅ None |
 | InitCounter.user | `Signer<'info>` | None | ✅ None |
-| InitCounter.system_program | `Program<'info, System>` | None | ✅ None |
-| Increment.config | `Account<'info, Config>` | None | ✅ None |
-| Increment.counter | `Account<'info, Counter>` | None | ✅ None |
+| InitCounter.system_program | `Program<'info, T>` | None | ✅ None |
+| Increment.config | `Account<'info, T>` | None | ✅ None |
+| Increment.counter | `Account<'info, T>` | None | ✅ None |
 | Increment.user | `Signer<'info>` | None | ✅ None |
-| CloseCounter.counter | `Account<'info, Counter>` | None | ✅ None |
+| CloseCounter.counter | `Account<'info, T>` | None | ✅ None |
 | CloseCounter.user | `Signer<'info>` | None | ✅ None |
 | UpdateProfile.authority | `UncheckedAccount<'info>` | Signer question | ⚠️ Lets an attacker submit an authority's public key without holding its private key, meaning anyone can edit any profile without the actual owner's consent |
