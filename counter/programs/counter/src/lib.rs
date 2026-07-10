@@ -2,6 +2,8 @@ use anchor_lang::prelude::*;
 
 declare_id!("9zEKwVUB5iWrzw8St3cd6tyz4FS64JaaJt3cShXaT1W7");
 
+mod math;
+
 #[program]
 pub mod vault {
     use super::*;
@@ -15,6 +17,13 @@ pub mod vault {
             .checked_sub(amount)
             .ok_or(VaultError::InsufficientFunds)?;
 
+        Ok(())
+    }
+
+    pub fn deposit(ctx: Context<Deposit>, amount: u64) -> Result<()> {
+        let vault = &mut ctx.accounts.vault;
+        vault.authority = ctx.accounts.authority.key();
+        vault.balance = math::apply_deposit(vault.balance, amount).ok_or(VaultError::Overflow)?;
         Ok(())
     }
 }
@@ -37,8 +46,25 @@ pub struct Vault {
     pub balance: u64,
 }
 
+#[derive(Accounts)]
+pub struct Deposit<'info> {
+    #[account(
+        init_if_needed,
+        payer = authority,
+        space = 8 + 32 + 8,
+        seeds = [b"vault", authority.key().as_ref()],
+        bump,
+    )]
+    pub vault: Account<'info, Vault>,
+    #[account(mut)]
+    pub authority: Signer<'info>,
+    pub system_program: Program<'info, System>,
+}
+
 #[error_code]
 pub enum VaultError {
     #[msg("Withdrawal exceeds vault balance")]
-    InsufficientFunds, // Anchor assigns this custom code 6000
+    InsufficientFunds,
+    #[msg("Deposit overflows vault balance")]
+    Overflow,
 }
