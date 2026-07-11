@@ -1,0 +1,8 @@
+[fuzz.metrics]
+enabled = true
+
+
+[[fuzz.programs]]
+address = "9zEKwVUB5iWrzw8St3cd6tyz4FS64JaaJt3cShXaT1W7"
+program = "../target/deploy/counter.so"
+ 
