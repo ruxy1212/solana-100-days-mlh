@@ -58,7 +58,7 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 | :--- | :--- | :--- | :--- |
 | 78 | [Audit Your Own Code](week12/day78/) <br> <small>Produce a clean inventory of every account, plus creating a findings table</small> | ▶️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f3844-b0ad-0853-b56e-7811acca66cd) |
 | 79 | [Constrain a Vulnerable Instruction Declaratively](week12/day79/) <br> <small>Harden a deliberately insecure instruction and rewriting its accounts struct so every account is fully constrained</small> | 🛠️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f3d22-6ed6-b18d-d0d6-78baed6a531e) |
-| 80 | _(coming soon)_ | — | — |
+| 80 | [Tests That Try to Rob You](week12/day80/) <br> <small>A minimal vault program, with adversarial test to aggressively attack its security boundaries</small> | 💸 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f3d51-f52b-1308-d4fd-a33958bbb56f) |
 | 81 | _(coming soon)_ | — | — |
 | 82 | _(coming soon)_ | — | — |
 | 83 | _(coming soon)_ | — | — |
