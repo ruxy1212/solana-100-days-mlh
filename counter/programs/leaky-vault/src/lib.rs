@@ -9,11 +9,17 @@ pub mod leaky_vault {
     pub fn withdraw(ctx: Context<Withdraw>, _amount: u64) -> Result<()> {
         // VULNERABLE: we read this account's bytes without ever checking
         // who owns it. Anything that deserializes is treated as our Config.
-        let data = ctx.accounts.config.try_borrow_data()?;
-        let config = Config::try_deserialize(&mut &data[..])?;
+        // let data = ctx.accounts.config.try_borrow_data()?;
+        // let config = Config::try_deserialize(&mut &data[..])?;
+
+        // require_keys_eq!(
+        //     config.admin,
+        //     ctx.accounts.signer.key(),
+        //     VaultError::Unauthorized
+        // );
 
         require_keys_eq!(
-            config.admin,
+            ctx.accounts.config.admin,
             ctx.accounts.signer.key(),
             VaultError::Unauthorized
         );
@@ -28,7 +34,8 @@ pub mod leaky_vault {
 #[derive(Accounts)]
 pub struct Withdraw<'info> {
     /// CHECK: deserialized by hand below, with no owner check. This is the bug.
-    pub config: UncheckedAccount<'info>,
+    // pub config: UncheckedAccount<'info>,
+    pub config: Account<'info, Config>,
     #[account(mut)]
     pub signer: Signer<'info>,
 }

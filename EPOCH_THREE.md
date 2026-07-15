@@ -52,17 +52,17 @@ Welcome to Epoch 3. This stage is all about building on Solana. We transition fr
 </details>
 
 <details>
-<summary><b>Arc 12: Advanced Testing and Security — 2/7 Completed</b></summary>
+<summary><b>Arc 12: Advanced Testing and Security — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
 | 78 | [Audit Your Own Code](week12/day78/) <br> <small>Produce a clean inventory of every account, plus creating a findings table</small> | ▶️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f3844-b0ad-0853-b56e-7811acca66cd) |
 | 79 | [Constrain a Vulnerable Instruction Declaratively](week12/day79/) <br> <small>Harden a deliberately insecure instruction and rewriting its accounts struct so every account is fully constrained</small> | 🛠️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f3d22-6ed6-b18d-d0d6-78baed6a531e) |
 | 80 | [Tests That Try to Rob You](week12/day80/) <br> <small>A minimal vault program, with adversarial test to aggressively attack its security boundaries</small> | 💸 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f3d51-f52b-1308-d4fd-a33958bbb56f) |
-| 81 | _(coming soon)_ | — | — |
-| 82 | _(coming soon)_ | — | — |
-| 83 | _(coming soon)_ | — | — |
-| 84 | _(coming soon)_ | — | — |
+| 81 | [Let a machine find the bug](week12/day81/) <br> <small>Use `proptest` for property testing arithmetic, and `Trident` for full-program flow fuzzing to find security vulnerabilities.</small> | 🧪 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f46ef-a073-bb5c-f1cd-cdb958a034ef) |
+| 82 | [Rebuild the $326M Wormhole bug yourself](week12/day82/) <br> <small>Replicate the Wormhole unchecked account vulnerability, execute a mock exploit, and fix it using typed Anchor accounts.</small> | 💣 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f4ce4-117f-20f1-a1dd-af3543253ed9) |
+| 83 | [Write the security checklist](week12/day83/) <br> <small>Draft and publish a comprehensive Solana security checklist detailing account validation, signers, arithmetic, CPIs, and lifecycle.</small> | 📝 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f5a93-a430-0918-92b4-b513a51dcaf2) |
+| 84 | [Turn your checklist into a thread](week12/day84/) <br> <small>Package the receipts from the security checklist and exploits into a punchy, developer-focused social media thread.</small> | 🚀 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f5aa0-92b3-993e-2159-466faaccdf3e) |
 
 </details>
 
