@@ -1,4 +1,4 @@
-# Epoch 3: Programs and Smart Contracts
+# Epoch 3: Building Programs
 
 ![Epoch 3 Hero](https://mlhusercontent.com/backgrounds/challenges/019ecbff-efdb-8cee-beac-ee5b63da7d40.jpg?t=1781608270)
 

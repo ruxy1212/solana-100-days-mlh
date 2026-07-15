@@ -20,10 +20,10 @@ The 100 Days are divided into four major themes, which are called **Epochs**. Ea
 
 | Epoch | Theme | Status | Action |
 | :--- | :--- | :--- | :--- |
-| **Epoch 1** | Reading and Writing Data | 🟢 28/28 Days | [Enter Epoch 1 →](EPOCH_ONE.md) |
-| **Epoch 2** | Owning and Moving Data | 🟢 28/28 Days | [Enter Epoch 2 →](EPOCH_TWO.md) |
-| **Epoch 3** | Building Programs | 🟠 21/28 Days | [Enter Epoch 3 →](EPOCH_THREE.md) |
-| **Epoch 4** | Shipping and Exploring | ⚪ 0/16 Days | *Coming Soon* |
+| **Epoch 1** | Reading and Writing Data | 🟢 28/28 Days | [Enter Epoch 1 →](EPOCH_01.md) |
+| **Epoch 2** | Owning and Moving Data | 🟢 28/28 Days | [Enter Epoch 2 →](EPOCH_02.md) |
+| **Epoch 3** | Building Programs | 🟢 28/28 Days | [Enter Epoch 3 →](EPOCH_03.md) |
+| **Epoch 4** | Shipping and Exploring | 🟠 1/16 Days | [Enter Epoch 4 →](EPOCH_04.md) |
 
 ### The Weekly Rhythm of an Arc
 

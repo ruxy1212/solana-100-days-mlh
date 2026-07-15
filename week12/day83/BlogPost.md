@@ -14,8 +14,8 @@ Under pressure, it is easy to forget routine checks. That is why safety-critical
 
 ## 1. Account Validation (The "Owner Question")
 
-- [ ] **Every account's owner is validated.**
-- [ ] **Account types are guarded by distinct 8-byte discriminators.**
+- ☑ **Every account's owner is validated.**
+- ☑ **Account types are guarded by distinct 8-byte discriminators.**
 
 On Solana, if you read an account's data without checking who owns it, an attacker can pass a fake account containing whatever bytes they want. This exact class of vulnerability resulted in the $326 million Wormhole bridge hack.
 
@@ -38,8 +38,8 @@ pub config: Account<'info, Config>,
 
 ## 2. Authority & Signer Checks (The "Signer Question")
 
-- [ ] **Privileged actions require a verified signature, not just a matching key.**
-- [ ] **Anchor constraints (`has_one` or custom `constraint`) enforce logical ownership.**
+- ☑ **Privileged actions require a verified signature, not just a matching key.**
+- ☑ **Anchor constraints (`has_one` or custom `constraint`) enforce logical ownership.**
 
 Just because a public key is passed into your instruction and matches a storage field does not mean that the wallet owner authorized the action. You must verify the signature flag:
 
@@ -59,8 +59,8 @@ pub struct Withdraw<'info> {
 
 ## 3. Arithmetic Safety
 
-- [ ] **Every math operation uses checked arithmetic (`checked_add`, `checked_sub`, `checked_mul`).**
-- [ ] **All mathematical assumptions are proven using property-based testing.**
+- ☑ **Every math operation uses checked arithmetic (`checked_add`, `checked_sub`, `checked_mul`).**
+- ☑ **All mathematical assumptions are proven using property-based testing.**
 
 Rust compiles with overflow checks enabled in debug builds, but in release mode (by default on mainnet), overflows wrap around silently. To ensure safety, we must write pure math functions and stress-test them.
 
@@ -90,7 +90,7 @@ mod tests {
 
 ## 4. Invariant Fuzzing
 
-- [ ] **State invariants are tested through multi-step instruction sequences.**
+- ☑ **State invariants are tested through multi-step instruction sequences.**
 
 While unit tests prove isolated logic, vulnerabilities often arise from unexpected interaction sequences. Fuzzing frameworks like **Trident** allow you to set up guided, automated instruction flows (like running `deposit` continuously) to ensure your invariants hold:
 
@@ -115,8 +115,8 @@ The fuzzing campaign was configured using FuzzTest::fuzz(1000, 100). So rather t
 
 ## 5. Adversarial Testing with LiteSVM
 
-- [ ] **The test suite includes tests designed explicitly to rob the vault.**
-- [ ] **Assertions check for specific error codes, preventing false positive passes.**
+- ☑ **The test suite includes tests designed explicitly to rob the vault.**
+- ☑ **Assertions check for specific error codes, preventing false positive passes.**
 
 A robust security verification flow doesn't just check the happy path; it acts as a pessimist. Write dedicated test cases that mimic penetration attacks—trying to withdraw without a signature, swapping PDA inputs, or attempting to trigger underflows.
 
@@ -131,10 +131,16 @@ fn wrong_signer_is_rejected() {
 }
 ```
 
-By enforcing specific error code matches, you ensure the transaction failed for the exact security boundary you defined, rather than an unrelated execution error.
+By enforcing specific error code matches, you ensure the transaction failed for the exact security boundary you defined, rather than an unrelated execution error. 
+
+---
+
+One final, but very important check, was to ensure that while these bulletproof methods were in place, our program would not lock out **legitimate** actors.
+
+![Legitimate Test](https://dev-to-uploads.s3.us-east-2.amazonaws.com/uploads/articles/2dkq07mstzyh8iz2i5fi.png)
 
 ---
 
 *This post summarizes what was learnt across Arc12 (Days 78–84) of #100DaysOfSolana. We moved from auditing state accounts, hardening instructions, writing adversarial tests in LiteSVM, to fuzzing code paths with Trident and reproducing real-world vulnerability patterns.*
 
-*[See the complete Arc12 advanced testing repository on Github](https://github.com/ruxy1212/solana-100-days-mlh/tree/main/week12)*
+*[See the complete Arc12 advanced testing repository on Github.](https://github.com/ruxy1212/solana-100-days-mlh/tree/main/week12)*
