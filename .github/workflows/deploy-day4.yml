@@ -23,17 +23,17 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Install day4 dependencies
-        run: pnpm --filter day4 install
+      - name: Install day_04 dependencies
+        run: pnpm --filter day_04 install
         # - run: pnpm install
         #     working-directory: folder1/folder2
 
-      - name: Build day4 app
-        run: pnpm --filter day4 build
+      - name: Build day_04 app
+        run: pnpm --filter day_04 build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: week1/day4/dist
-          destination_dir: week1/day4
+          publish_dir: week_01/day_04/dist
+          destination_dir: week_01/day_04

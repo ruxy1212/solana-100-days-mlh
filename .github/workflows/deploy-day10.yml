@@ -1,4 +1,4 @@
-name: Deploy Day10
+name: Deploy Day_10
 
 on:
   push:
@@ -23,17 +23,17 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Install day10 dependencies
-        run: pnpm --filter day10 install
+      - name: Install day_10 dependencies
+        run: pnpm --filter day_10 install
         # - run: pnpm install
         #     working-directory: folder1/folder2
 
-      - name: Build day10 app
-        run: pnpm --filter day10 build
+      - name: Build day_10 app
+        run: pnpm --filter day_10 build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: week2/day10/dist
-          destination_dir: week2/day10
+          publish_dir: week_02/day_10/dist
+          destination_dir: week_02/day_10
