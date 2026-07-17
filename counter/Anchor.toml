@@ -9,6 +9,7 @@ skip-lint = false
 [programs.localnet]
 counter = "9zEKwVUB5iWrzw8St3cd6tyz4FS64JaaJt3cShXaT1W7"
 leaky-vault = "8isMTET4cRSPzNfRJqv9pQsuZAdb71MgQrTMApJKYW3x"
+vault = "9XJDPKMvTyjtMD5wj3tmga7XPwLtiHUWPHVGXQt15EME"
 
 [provider]
 cluster = "localnet"
