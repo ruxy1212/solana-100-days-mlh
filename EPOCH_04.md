@@ -7,7 +7,7 @@ Welcome to Epoch 4. This stage is all about deploying to Production.
 ---
 
 <details open>
-<summary><b>Arc 13: Deployment — 0/7 Completed</b></summary>
+<summary><b>Arc 13: Title here — 0/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |

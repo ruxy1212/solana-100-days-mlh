@@ -1,13 +1,46 @@
 import { useState } from 'react';
 import { useBalance, useSolTransfer, useWalletConnection } from "@solana/react-hooks";
+import { classifyWalletError, type WalletErrorInfo } from "./walletErrors";
 
 export default function App() {
-  const { send, isSending } = useSolTransfer();
   const [destination, setDestination] = useState('');
+  const [amount, setAmount] = useState<number>(0.001);
+  const [sendStatus, setSendStatus] = useState<WalletErrorInfo | null>(null);
+
+  const { send, isSending } = useSolTransfer();
   const { connectors, connect, disconnect, wallet, status } =
     useWalletConnection();
   const { lamports } = useBalance(wallet?.account.address);
   const address = wallet?.account.address.toString();
+
+  async function handleSend() {
+    if (!amount) {
+      setSendStatus({
+        kind: "error",
+        severity: "warning",
+        title: "Invalid Input",
+        message: `Enter a valid amount (SOL) to send.`,
+        retryable: false,
+      });
+      return;
+    }
+    setSendStatus(null);
+    try {
+      const lamport_amount = BigInt(Math.round(amount * 1_000_000_000));
+      const signature = await send({ amount: lamport_amount, destination });
+      setSendStatus({
+        kind: "success",
+        severity: "success",
+        title: "Sent",
+        message: `Confirmed: ${signature}`,
+        retryable: false,
+      });
+    } catch (error) {
+      const info = classifyWalletError(error);
+      console.error(`[wallet:${info.kind}]`, error); // full detail, for you
+      setSendStatus(info);                           // friendly detail, for them
+    }
+  }
 
   return (
     <div className="relative min-h-screen overflow-x-clip bg-bg1 text-foreground">
@@ -133,7 +166,7 @@ export default function App() {
                 </span>
                 <span
                   aria-hidden
-                  className="h-2.5 w-2.5 rounded-full bg-border-low transition group-hover:bg-primary/80"
+                  className={`h-2.5 w-2.5 rounded-full ${wallet?.connector.id === connector.id ? 'bg-green-500' : 'bg-border-low group-hover:bg-primary/80'} transition`}
                 />
               </button>
             ))}
@@ -149,7 +182,7 @@ export default function App() {
             <button
               onClick={() => disconnect()}
               disabled={status !== "connected"}
-              className="inline-flex items-center gap-2 rounded-lg border border-border-low bg-card px-3 py-2 font-medium transition hover:-translate-y-0.5 hover:shadow-sm cursor-pointer disabled:cursor-not-allowed disabled:opacity-60"
+              className={`inline-flex items-center gap-2 rounded-lg border border-border-low px-3 py-2 font-medium transition hover:-translate-y-0.5 hover:shadow-sm cursor-pointer disabled:cursor-not-allowed disabled:opacity-60 ${status === "connected" ? "bg-red-600/50" : "bg-card"}`}
             >
               Disconnect
             </button>
@@ -160,15 +193,36 @@ export default function App() {
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
               placeholder="Recipient address"
-              className="rounded-lg border border-border-low bg-cream px-3 py-2 font-mono text-xs"
+              className="rounded-lg border border-border-low bg-white text-black px-3 py-2 font-mono text-xs"
+            />
+            <input
+              value={amount}
+              type="number"
+              onChange={(e) => setAmount(Number(e.target.value) || 0)}
+              placeholder="Amount (SOL)"
+              className="rounded-lg border border-border-low bg-white text-black px-3 py-2 font-mono text-xs"
             />
             <button
-              onClick={() => send({ amount: 1_000_000n, destination })}
-              disabled={isSending || !destination}
-              className="rounded-lg border border-border-low bg-card px-3 py-2 font-medium"
+              onClick={handleSend}
+              disabled={isSending || !destination || !amount}
+              className="rounded-lg border border-border-low bg-blue-500 text-white px-3 py-2 font-medium"
             >
-              {isSending ? 'Sending…' : 'Send 0.001 SOL'}
+              {isSending ? 'Sending…' : `Send ${amount} SOL`}
             </button>
+            {sendStatus && (
+              <div className={`status status--${sendStatus.severity}`} role="status">
+                <strong>{sendStatus.title}</strong>
+                <p>{sendStatus.message}</p>
+                {sendStatus.retryable && sendStatus.severity !== "success" && (
+                  <button
+                    onClick={handleSend}
+                    className="mt-2 rounded-lg border border-border-low bg-yellow-600 text-white px-3 py-2 font-medium"
+                  >
+                    Try again
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         </section>
       </main>
