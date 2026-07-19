@@ -21,6 +21,15 @@ Welcome to Epoch 4. This stage is all about shipping your applications to produc
 
 </details>
 
+<details open>
+<summary><b>Arc 14: Deployment and Client Integration — 0/7 Completed</b></summary>
+
+| Day | Challenge | Rhythm | Links |
+| :--- | :--- | :--- | :--- |
+| 92 | - | - | - |
+
+</details>
+
 ---
 
 [← Back to Roadmap](README.md)
