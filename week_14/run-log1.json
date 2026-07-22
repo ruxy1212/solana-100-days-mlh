@@ -1,0 +1,82 @@
+[
+  {
+    "turn": 1,
+    "event": "tool_call",
+    "detail": {
+      "tool": "get_balance",
+      "input": "{\"address\":\"DDKRjCtYz1kNnxQAmu58v88f4LKHgi1z1qjRHxdq3x1i\"}"
+    }
+  },
+  {
+    "turn": 1,
+    "event": "tool_result",
+    "detail": "{\"address\":\"DDKRjCtYz1kNnxQAmu58v88f4LKHgi1z1qjRHxdq3x1i\",\"lamports\":0}"
+  },
+  {
+    "turn": 1,
+    "event": "tool_call",
+    "detail": {
+      "tool": "get_balance",
+      "input": "{\"address\":\"Ao4fv5kwucodzGzyHTeo5BQkZWQXcuHfeD18PfpYpZFM\"}"
+    }
+  },
+  {
+    "turn": 1,
+    "event": "tool_result",
+    "detail": "{\"address\":\"Ao4fv5kwucodzGzyHTeo5BQkZWQXcuHfeD18PfpYpZFM\",\"lamports\":553715040}"
+  },
+  {
+    "turn": 2,
+    "event": "tool_call",
+    "detail": {
+      "tool": "transfer_sol",
+      "input": "{\"lamports\":200000000,\"to\":\"DDKRjCtYz1kNnxQAmu58v88f4LKHgi1z1qjRHxdq3x1i\"}"
+    }
+  },
+  {
+    "turn": 2,
+    "event": "policy_check",
+    "detail": {
+      "lamports": 200000000,
+      "to": "DDKRjCtYz1kNnxQAmu58v88f4LKHgi1z1qjRHxdq3x1i",
+      "allowed": true,
+      "reason": "within policy"
+    }
+  },
+  {
+    "turn": 2,
+    "event": "tool_result",
+    "detail": "{\"status\":\"confirmed\",\"signature\":\"4NDPaFm31jUtKEXM8Y82MwdNxueyuucwNPvLPXnqZv5AD7XcTdrD9ovLYxh9qfQTKrboZmQ1eMPm8Jeh7kAJCuGj\"}"
+  },
+  {
+    "turn": 2,
+    "event": "tool_call",
+    "detail": {
+      "tool": "get_balance",
+      "input": "{\"address\":\"DDKRjCtYz1kNnxQAmu58v88f4LKHgi1z1qjRHxdq3x1i\"}"
+    }
+  },
+  {
+    "turn": 2,
+    "event": "tool_result",
+    "detail": "{\"address\":\"DDKRjCtYz1kNnxQAmu58v88f4LKHgi1z1qjRHxdq3x1i\",\"lamports\":200000000}"
+  },
+  {
+    "turn": 2,
+    "event": "tool_call",
+    "detail": {
+      "tool": "get_balance",
+      "input": "{\"address\":\"Ao4fv5kwucodzGzyHTeo5BQkZWQXcuHfeD18PfpYpZFM\"}"
+    }
+  },
+  {
+    "turn": 2,
+    "event": "tool_result",
+    "detail": "{\"address\":\"Ao4fv5kwucodzGzyHTeo5BQkZWQXcuHfeD18PfpYpZFM\",\"lamports\":353710040}"
+  },
+  {
+    "turn": 3,
+    "event": "final_report",
+    "detail": "I have transferred 200000000 lamports to the savings wallet. The savings wallet now has 200000000 lamports, which is 0.2 SOL. The operating wallet has 353710040 lamports remaining."
+  }
+]
