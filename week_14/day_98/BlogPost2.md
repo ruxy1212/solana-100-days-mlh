@@ -12,4 +12,4 @@ Here is how the execution unfolded:
 Read the operations manual and view the run logs here 👇
 https://dev.to/russell_oje/the-missing-operations-manual-for-our-on-chain-agent-3h0m
 
-`#100DaysOfSolana` `#SolanaDev` `#AI` `#Web3`
+`#100DaysOfSolana`

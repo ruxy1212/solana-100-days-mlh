@@ -22,11 +22,17 @@ Welcome to Epoch 4. This stage is all about shipping your applications to produc
 </details>
 
 <details open>
-<summary><b>Arc 14: Deployment and Client Integration — 0/7 Completed</b></summary>
+<summary><b>Arc 14: Agentic Solana — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
-| 92 | - | - | - |
+| 92 | [Ask an AI agent to read devnet](week_14/day_92/) <br> <small>Set up a read-only Node.js agent with balance and account info lookup tools using OpenAI.</small> | ▶️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f84de-5e79-f677-d81f-6705efc1760b) |
+| 93 | [Hand your agent a wallet and let it send SOL](week_14/day_93/) <br> <small>Give the agent a local wallet and a guarded SOL transfer tool with code-enforced limits.</small> | 🛠️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f84e1-1e4f-7b46-905b-c197baa51b31) |
+| 94 | [Wrap your Solana program in an MCP server](week_14/day_94/) <br> <small>Build an MCP server that exposes wallet checks, program state reads, and deposits, and connect it to VS Code Copilot.</small> | 📌 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f8507-daba-8ace-bb3a-fccdab96f188) |
+| 95 | [Put a policy between your agent and its wallet](week_14/day_95/) <br> <small>Create a deny-by-default policy engine with recipient allowlists, per-transaction caps, and session budgets.</small> | 💸 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f850b-3d6d-ef50-f708-34be63ad9644) |
+| 96 | [Hand your agent a goal and watch](week_14/day_96/) <br> <small>Execute goal-oriented workflows under restricted and impossible scenarios and analyze the trial logs.</small> | 🧪 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f850d-64be-6096-4399-654eabe63dc3) |
+| 97 | [Write the missing manual for your agent](week_14/day_97/) <br> <small>Formulate a runbook and blog posts detailing system components, tools, workflows, and log analyses.</small> | 📝 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f854c-a546-0e04-8b86-30b8c69572a8) |
+| 98 | [Record your agent running solo and share](week_14/day_98/) <br> <small>Record a demo showing successful runs, policy rejections, and impossible scenarios, and share social media updates.</small> | 🚀 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f854f-9d1b-4e45-85d1-de8a5188f476) |
 
 </details>
 

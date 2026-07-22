@@ -1,4 +1,4 @@
-🤖 Giving an AI agent access to a live blockchain wallet is extremely powerful—but securing it with just prompt instructions is a recipe for disaster. 
+🤖 Giving an AI agent access to a live blockchain wallet is extremely powerful, but securing it with just prompt instructions is a recipe for disaster. 
 
 Here is why you should never rely on prompts for security, and how to build a code-enforced, deny-by-default transaction policy:
 - 🚫 **Prompt Injection Risks:** LLMs can be persuaded or jailbroken to ignore constraints.
@@ -9,4 +9,4 @@ Here is why you should never rely on prompts for security, and how to build a co
 Check out my full breakdown on how to architect guarded agents 👇
 https://dev.to/russell_oje/the-architecture-of-guarded-blockchain-agents-3h0k
 
-`#100DaysOfSolana` `#AIAgents` `#Solana` `#Web3Security`
+`#100DaysOfSolana`
