@@ -10,3 +10,4 @@ test-ledger
 .yarn
 .surfpool
 drafts/
+agent-wallet.json
