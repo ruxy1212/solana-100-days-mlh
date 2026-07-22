@@ -1,0 +1,9 @@
+{
+	"servers": {
+		"my-solana": {
+			"type": "stdio",
+			"command": "C:/laragon/www/react/ideas/solana-100/week_14/run-mcp.cmd",
+		}
+	},
+	"inputs": []
+}
