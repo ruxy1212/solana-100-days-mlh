@@ -7,6 +7,6 @@ Here is why you should never rely on prompts for security, and how to build a co
 - 🔄 **OpenAI Integration:** Leverage standard API structures to allow agent execution across different models and providers.
 
 Check out my full breakdown on how to architect guarded agents 👇
-https://dev.to/russell_oje/the-architecture-of-guarded-blockchain-agents-3h0k
+https://dev.to/russell_oje/the-architecture-of-guarded-blockchain-agents-using-code-enforced-policies-4m66
 
 `#100DaysOfSolana`

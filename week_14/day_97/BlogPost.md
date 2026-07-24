@@ -1,6 +1,6 @@
 # The Architecture of Guarded Blockchain Agents: Moving From Prompt Constraints to Code-Enforced Policies
 
-**Tags:** 100daysofsolana, ai, web3, openai
+**Tags:** 100daysofsolana, ai, web3, beginner
 
 ---
 
@@ -77,6 +77,8 @@ A per-transfer cap alone is insufficient; an LLM could run in a loop and execute
 ## Lessons from the Field
 
 As we ran experiments with this architecture, several critical insights emerged:
-- **Non-Determinism as a Feature:** When a single transaction is blocked by the policy engine, a smart agent doesn't crash. It reads the error returned by the tool, adapts its planning, and splits the task into smaller chunks that fit within the policy limits.
-- **Failures are Normal Tool Results:** A transaction failure (due to policy rejection or network congestion) should not throw an exception that crashes the Node.js process. It should be returned as a standard stringified JSON result so the LLM can explain it or adjust its strategy.
-
+- **LLMs are adaptive, not deterministic.** The same prompt may produce different—but still valid—tool-call sequences.
+- **Policies are more important than prompts.** Prompt engineering cannot guarantee safety; executable policy checks can.
+- **Autonomy requires observability.** Detailed logs made it possible to understand every reasoning step and verify that safety rules were enforced.
+- **Small constraints encourage better planning.** Lower transfer limits forced the model to decompose larger goals into valid sequential actions instead of repeatedly failing.
+- **Devnet is the right proving ground.** Autonomous agents should earn trust in a sandbox before interacting with assets of real value.
