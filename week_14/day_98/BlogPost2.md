@@ -1,4 +1,4 @@
-🎥 Watch my autonomous Solana agent run completely solo on devnet! 
+🎥 Watch my autonomous Solana agent run completely solo! 
 
 I gave the agent one simple goal: "Make sure the savings wallet holds at least 0.2 SOL."
 
@@ -10,6 +10,6 @@ Here is how the execution unfolded:
 - 🛑 In the impossible scenario (asking for 5 SOL when only 1.55 SOL was available), the agent recognized the shortfall and safely aborted.
 
 Read the operations manual and view the run logs here 👇
-https://dev.to/russell_oje/the-missing-operations-manual-for-our-on-chain-agent-3h0m
+https://dev.to/russell_oje/the-missing-operations-manual-for-our-on-chain-autonomous-agent-31ia
 
 `#100DaysOfSolana`
