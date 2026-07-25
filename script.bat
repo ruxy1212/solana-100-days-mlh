@@ -8,6 +8,16 @@ if "%~1"=="--create-week" (
 
   set /a end=week*7
   set /a start=end-6
+  if not "%~3"=="" (
+    for /f "tokens=2 delims==" %%A in ("%~3") do set /a limit=%%A
+    if !end! gtr !limit! set /a end=limit
+  )
+
+  if not !end! gtr !start! (
+    echo Invalid week range: start=!start!, end=!end!, limit=!limit!
+    echo The week exceeds the limit.
+    exit /b 1
+  )
 
   mkdir "week_!week!"
   echo Created folder for week !week!
