@@ -21,7 +21,7 @@ Welcome to Epoch 4. This stage is all about shipping your applications to produc
 
 </details>
 
-<details open>
+<details>
 <summary><b>Arc 14: Agentic Solana — 7/7 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
@@ -33,6 +33,16 @@ Welcome to Epoch 4. This stage is all about shipping your applications to produc
 | 96 | [Hand your agent a goal and watch](week_14/day_96/) <br> <small>Execute goal-oriented workflows under restricted and impossible scenarios and analyze the trial logs.</small> | 🧪 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f850d-64be-6096-4399-654eabe63dc3) |
 | 97 | [Write the missing manual for your agent](week_14/day_97/) <br> <small>Formulate a runbook and blog posts detailing system components, tools, workflows, and log analyses.</small> | 📝 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f854c-a546-0e04-8b86-30b8c69572a8) |
 | 98 | [Record your agent running solo and share](week_14/day_98/) <br> <small>Record a demo showing successful runs, policy rejections, and impossible scenarios, and share social media updates.</small> | 🚀 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019f854f-9d1b-4e45-85d1-de8a5188f476) |
+
+</details>
+
+<details>
+<summary><b>Arc 15: Title here — 0/2 Completed</b></summary>
+
+| Day | Challenge | Rhythm | Links |
+| :--- | :--- | :--- | :--- |
+| 99 | _Coming soon_ | ▶️ | - |
+| 100 | _Coming soon_ | ▶️ | - |
 
 </details>
 
