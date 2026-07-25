@@ -2,6 +2,8 @@
 
 100 days of Solana challenge on MLH.
 
+![Hero](https://media.licdn.com/dms/image/v2/D5622AQHgAHGHUzdOQw/feedshare-shrink_1280/B56Z2rwTWUGoAQ-/0/1776703059654?e=1786579200&v=beta&t=hkw8OYg-XLdw1gzzJ-LoElZTinSuzGk2-5iyjFTaZkA)
+
 ## Event Description
 
 You’ve explored web3 but you’re not sure what to build or where to start.
