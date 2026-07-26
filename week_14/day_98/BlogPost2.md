@@ -1,6 +1,6 @@
 🎥 Watch my autonomous Solana agent run completely solo! 
 
-I gave the agent one simple goal: "Make sure the savings wallet holds at least 0.2 SOL."
+I gave the agent one simple goal: "Make sure the savings wallet holds at least 0.4 SOL."
 
 Here is how the execution unfolded:
 - 🔍 Checked on-chain balances for both wallets.

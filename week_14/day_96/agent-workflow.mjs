@@ -28,10 +28,15 @@ const operating = loadWallet("agent-wallet.json");
 const savings = loadWallet("savings-wallet.json");
 
 // ---- The policy layer: deny by default, hard numeric caps ----
-const TARGET = 5;
+const TARGET = process.env.AGENT_TARGET;
+const PER_SOL = process.env.AGENT_PER_SOL;
+if (!TARGET || !PER_SOL) {
+  console.error("Please set AGENT_TARGET and AGENT_PER_SOL environment variables.");
+  process.exit(1);
+}
 const POLICY = {
   allowedRecipients: [savings.publicKey.toBase58()],
-  maxLamportsPerTransfer: 0.25 * LAMPORTS_PER_SOL,
+  maxLamportsPerTransfer: PER_SOL * LAMPORTS_PER_SOL,
   maxLamportsPerRun: 0.5 * LAMPORTS_PER_SOL,
 };
 
