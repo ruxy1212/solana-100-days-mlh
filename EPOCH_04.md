@@ -41,7 +41,7 @@ Welcome to Epoch 4. This stage is all about shipping your applications to produc
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
-| 99 | _Coming soon_ | ▶️ | - |
+| 99 | _Coming soon_ | ▶️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019fa3be-5f30-6d2e-df9f-4222a0d119c5) |
 | 100 | _Coming soon_ | ▶️ | - |
 
 </details>
