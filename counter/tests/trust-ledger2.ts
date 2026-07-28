@@ -673,7 +673,17 @@ describe("trust-ledger", () => {
       .rpc();
 
     const vaultPostBalance = await provider.connection.getBalance(vaultPda);
-    assert.equal(vaultPostBalance - vaultPreBalance, amount.toNumber(), "Vault should hold the full amount");
+
+    // The vault is a bare System-owned PDA, so create_contract funds it with the
+    // escrowed `amount` PLUS a permanent rent-exempt reserve (independent of
+    // `amount`) so the vault stays valid even when `amount` itself is tiny.
+    // See test 12, which exercises exactly that edge case.
+    const rentExemptReserve = await provider.connection.getMinimumBalanceForRentExemption(0);
+    assert.equal(
+      vaultPostBalance - vaultPreBalance,
+      amount.toNumber() + rentExemptReserve,
+      "Vault should hold the escrowed amount plus its own permanent rent-exempt reserve"
+    );
 
     const contractAcc = await program.account.contract.fetch(contractPda);
     assert.equal(contractAcc.client.toBase58(), client.publicKey.toBase58());
@@ -828,6 +838,19 @@ describe("trust-ledger", () => {
           reputation: reputationPda,
           systemProgram: anchor.web3.SystemProgram.programId,
         } as any)
+        // This sends the exact same instruction + accounts as test 6's successful
+        // approveMilestone(1) call. If it lands on the same blockhash as that prior
+        // call (easy to hit with fast/back-to-back local validator transactions),
+        // the network rejects it outright as a duplicate ("This transaction has
+        // already been processed") before it ever reaches the program — which would
+        // hide the MilestoneNotSubmitted check we're actually trying to test.
+        // A throwaway compute-budget instruction with a unique value guarantees a
+        // distinct transaction message regardless of blockhash timing.
+        .preInstructions([
+          anchor.web3.ComputeBudgetProgram.setComputeUnitPrice({
+            microLamports: Date.now(),
+          }),
+        ])
         .rpc();
       assert.fail("Should have failed");
     } catch (err: any) {
@@ -1041,4 +1064,3 @@ describe("trust-ledger", () => {
     );
   });
 });
-
