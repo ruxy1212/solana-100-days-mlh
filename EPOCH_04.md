@@ -37,12 +37,12 @@ Welcome to Epoch 4. This stage is all about shipping your applications to produc
 </details>
 
 <details>
-<summary><b>Arc 15: Title here — 0/2 Completed</b></summary>
+<summary><b>Arc 15: Capstone and Reflection — 2/2 Completed</b></summary>
 
 | Day | Challenge | Rhythm | Links |
 | :--- | :--- | :--- | :--- |
-| 99 | _Coming soon_ | ▶️ | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019fa3be-5f30-6d2e-df9f-4222a0d119c5) |
-| 100 | _Coming soon_ | ▶️ | - |
+| 99 | [Build your capstone and ship](week_15/day_99/) <br> <small>Design, build, test, and deploy a capstone project to devnet, then connect it to at least one other piece of your 100 days toolkit.</small> | 🚀 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019fa3be-5f30-6d2e-df9f-4222a0d119c5) |
+| 100 | [Tell the story of your capstone and your 100 days](week_15/day_100/) <br> <small>Write a DEV article that explains what the journey taught you, connects it to your capstone, and reflects on what comes next.</small> | 📝 | [🔗](https://www.mlh.com/events/100-days-of-solana/challenges/019fa3fa-3169-b32e-ab96-87a6a3a4409a) |
 
 </details>
 
