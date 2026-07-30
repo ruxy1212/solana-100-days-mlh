@@ -1,14 +1,14 @@
-# The Trust Ledger I Built After 100 Days of Solana
+# Trust Ledger: A Peek Into My Capstone Project of #100DaysOfSolana
 
 **Tags:** 100daysofsolana, rust, anchor, nextjs
 
 ---
 
-> Day 99. I built Trust Ledger, an app that lets clients lock funds into milestone-based contracts, and lets freelancers grow a reputation that sticks to their wallet, and it also lets an AI agent read reputation without ever touching funds.
+> On Day 99, I built Trust Ledger, an app that lets clients lock funds into milestone-based contracts, and lets freelancers grow a reputation that sticks to their wallet, and it also lets an AI agent read reputation without ever touching funds.
 
 ## The Background Picture
 
-The easiest way to describe this app is to ask a simple question: what should happen when work moves from “we should probably trust each other” to “the money is already on chain”? Trust Ledger is my answer.
+The simplest way to explain this app is to ask one question: _What if trust wasn't something you had to hope for, because the payment was already secured on-chain?_ Trust Ledger is my answer.
 
 The app has four moving parts that stay tied together:
 
@@ -48,7 +48,7 @@ That is the kind of integration that only shows up after a lot of small reps. On
 
 ## Why I Like This One
 
-I like this capstone because it does not try to be flashy for the sake of it. It tries to be useful.
+I like this idea I chose for my capstone because it does not try to be flashy for the sake of it. It tries to be useful.
 
 It answers a practical problem:
 
@@ -60,8 +60,8 @@ The wallet stays sovereign. The state stays public. The application stays honest
 
 ## The Way Forward
 
-I want to keep expanding Trust Ledger with better contract views, verification badges (revocable), clearer milestone flows, and a tighter agent experience. The bigger lesson from the build is still the same one I keep running into on Solana: if you can make the state public, the rules explicit, and the UI honest, the rest gets easier to reason about.
+I want to keep expanding Trust Ledger with better contract views, verification badges (revocable), clearer milestone flows, and a tighter agent experience, plus fixing some bugs I've noticed so far while testing. The bigger lesson from the build is still the same one I keep running into since I started building in web3: if you can make the state public, the rules explicit, and the UI honest, the rest gets easier to reason about.
 
-*Check out my [100 Days of Solana Repository](https://github.com/ruxy1212/solana-100-days-mlh).*
+*The live link to Trust Ledger [is here](https://solana-100-days-mlh.vercel.app)*
 
-The live link to Trust Ledger [is here](https://solana-100-days-mlh.vercel.app)
+Also check out my [100 Days of Solana Repository](https://github.com/ruxy1212/solana-100-days-mlh). Feel free to clone and fork. See ya!
