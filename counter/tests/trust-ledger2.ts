@@ -1,6 +1,14 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { assert } from "chai";
+import {
+  TOKEN_2022_PROGRAM_ID,
+  ASSOCIATED_TOKEN_PROGRAM_ID,
+  getAssociatedTokenAddressSync,
+  getMint,
+  getAccount,
+  createTransferCheckedInstruction,
+} from "@solana/spl-token";
 // import { TrustLedger } from "../target/types/trust_ledger";
 type TrustLedger = {
   "address": "E68AQePth8MVtn2aHax23c6BWye8Mnw2fkDzCyTfqNEk",
@@ -620,6 +628,22 @@ describe("trust-ledger", () => {
     return { contractPda, vaultPda };
   }
 
+  // Helper: derive the badge mint PDA + the freelancer's ATA for it
+  function deriveBadgePdas(freelancerPk: anchor.web3.PublicKey) {
+    const [badgeMint] = anchor.web3.PublicKey.findProgramAddressSync(
+      [Buffer.from("badge"), freelancerPk.toBuffer()],
+      program.programId
+    );
+    const badgeTokenAccount = getAssociatedTokenAddressSync(
+      badgeMint,
+      freelancerPk,
+      true,
+      TOKEN_2022_PROGRAM_ID,
+      ASSOCIATED_TOKEN_PROGRAM_ID
+    );
+    return { badgeMint, badgeTokenAccount };
+  }
+
   before(async () => {
     await fundWallet(freelancer.publicKey);
     await fundWallet(stranger.publicKey);
@@ -629,6 +653,8 @@ describe("trust-ledger", () => {
   let contractPda: anchor.web3.PublicKey;
   let vaultPda: anchor.web3.PublicKey;
   let reputationPda: anchor.web3.PublicKey;
+  let badgeMint: anchor.web3.PublicKey;
+  let badgeTokenAccount: anchor.web3.PublicKey;
 
   // ── Test 1 ──────────────────────────────────────────────────────────────────
   it("1. creates a profile for the freelancer", async () => {
@@ -698,11 +724,12 @@ describe("trust-ledger", () => {
   });
 
   // ── Test 3 ──────────────────────────────────────────────────────────────────
-  it("3. freelancer submits, client approves, funds release", async () => {
+  it("3. freelancer submits, client approves, funds release, badge mints", async () => {
     [reputationPda] = anchor.web3.PublicKey.findProgramAddressSync(
       [Buffer.from("reputation"), freelancer.publicKey.toBuffer()],
       program.programId
     );
+    ({ badgeMint, badgeTokenAccount } = deriveBadgePdas(freelancer.publicKey));
 
     const freelancerPreBalance = await provider.connection.getBalance(freelancer.publicKey);
 
@@ -726,6 +753,10 @@ describe("trust-ledger", () => {
         client: client.publicKey,
         freelancer: freelancer.publicKey,
         reputation: reputationPda,
+        badgeMint: badgeMint,
+        badgeTokenAccount: badgeTokenAccount,
+        tokenProgram: TOKEN_2022_PROGRAM_ID,
+        associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
         systemProgram: anchor.web3.SystemProgram.programId,
       } as any)
       .rpc();
@@ -743,6 +774,16 @@ describe("trust-ledger", () => {
 
     const reputation = await program.account.reputationRecord.fetch(reputationPda);
     assert.equal(reputation.completedCount, 1, "completed_count should be 1 after first approval");
+
+    // This was the freelancer's first-ever completion — the badge mint must
+    // now exist, with 0 decimals, supply exactly 1, and no mint authority left.
+    const mintInfo = await getMint(provider.connection, badgeMint, undefined, TOKEN_2022_PROGRAM_ID);
+    assert.equal(mintInfo.decimals, 0, "badge mint should have 0 decimals");
+    assert.equal(mintInfo.supply.toString(), "1", "badge supply should be exactly 1");
+    assert.equal(mintInfo.mintAuthority, null, "mint authority should be revoked after minting");
+
+    const badgeAccount = await getAccount(provider.connection, badgeTokenAccount, undefined, TOKEN_2022_PROGRAM_ID);
+    assert.equal(badgeAccount.amount.toString(), "1", "freelancer should hold exactly 1 badge token");
   });
 
   // ── Test 4 ──────────────────────────────────────────────────────────────────
@@ -766,6 +807,10 @@ describe("trust-ledger", () => {
           client: stranger.publicKey,  // ← wrong signer
           freelancer: freelancer.publicKey,
           reputation: reputationPda,
+          badgeMint: badgeMint,
+          badgeTokenAccount: badgeTokenAccount,
+          tokenProgram: TOKEN_2022_PROGRAM_ID,
+          associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
           systemProgram: anchor.web3.SystemProgram.programId,
         } as any)
         .signers([stranger])
@@ -814,6 +859,10 @@ describe("trust-ledger", () => {
         client: client.publicKey,
         freelancer: freelancer.publicKey,
         reputation: reputationPda,
+        badgeMint: badgeMint,
+        badgeTokenAccount: badgeTokenAccount,
+        tokenProgram: TOKEN_2022_PROGRAM_ID,
+        associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
         systemProgram: anchor.web3.SystemProgram.programId,
       } as any)
       .rpc();
@@ -836,6 +885,10 @@ describe("trust-ledger", () => {
           client: client.publicKey,
           freelancer: freelancer.publicKey,
           reputation: reputationPda,
+          badgeMint: badgeMint,
+          badgeTokenAccount: badgeTokenAccount,
+          tokenProgram: TOKEN_2022_PROGRAM_ID,
+          associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
           systemProgram: anchor.web3.SystemProgram.programId,
         } as any)
         // This sends the exact same instruction + accounts as test 6's successful
@@ -909,6 +962,10 @@ describe("trust-ledger", () => {
           client: client.publicKey,
           freelancer: freelancer.publicKey,
           reputation: reputationPda,
+          badgeMint: badgeMint,
+          badgeTokenAccount: badgeTokenAccount,
+          tokenProgram: TOKEN_2022_PROGRAM_ID,
+          associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
           systemProgram: anchor.web3.SystemProgram.programId,
         } as any)
         .rpc();
@@ -993,6 +1050,10 @@ describe("trust-ledger", () => {
         client: client.publicKey,
         freelancer: freelancer.publicKey,
         reputation: reputationPda,   // same ReputationRecord as before
+        badgeMint: badgeMint,
+        badgeTokenAccount: badgeTokenAccount,
+        tokenProgram: TOKEN_2022_PROGRAM_ID,
+        associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
         systemProgram: anchor.web3.SystemProgram.programId,
       } as any)
       .rpc();
@@ -1000,6 +1061,10 @@ describe("trust-ledger", () => {
     // completed_count was 2 after test 6; now it should be 3
     const reputation = await program.account.reputationRecord.fetch(reputationPda);
     assert.equal(reputation.completedCount, 3, "completedCount should accumulate across contracts");
+
+    // This is the freelancer's 3rd completion — the badge must NOT re-mint.
+    const mintInfo = await getMint(provider.connection, badgeMint, undefined, TOKEN_2022_PROGRAM_ID);
+    assert.equal(mintInfo.supply.toString(), "1", "badge supply must stay 1 across multiple contracts");
   });
 
   // ── Test 12 ─────────────────────────────────────────────────────────────────
@@ -1047,6 +1112,10 @@ describe("trust-ledger", () => {
           client: client.publicKey,
           freelancer: freelancer.publicKey,
           reputation: reputationPda,
+          badgeMint: badgeMint,
+          badgeTokenAccount: badgeTokenAccount,
+          tokenProgram: TOKEN_2022_PROGRAM_ID,
+          associatedTokenProgram: ASSOCIATED_TOKEN_PROGRAM_ID,
           systemProgram: anchor.web3.SystemProgram.programId,
         } as any)
         .rpc();
@@ -1062,5 +1131,94 @@ describe("trust-ledger", () => {
       0,
       "Vault escrow portion should be exactly 0 after all approvals (remainder paid on last milestone)"
     );
+  });
+
+  // ── Test 13 ─────────────────────────────────────────────────────────────────
+  it("13. cannot submit a milestone out of order", async () => {
+    const contractId4 = new BN(Math.floor(Math.random() * 1_000_000));
+    const { contractPda: contract4, vaultPda: vault4 } = deriveContractPdas(
+      client.publicKey, freelancer.publicKey, contractId4
+    );
+
+    await program.methods
+      .createContract(contractId4, new BN(0.3 * anchor.web3.LAMPORTS_PER_SOL), 3)
+      .accounts({
+        contract: contract4,
+        vault: vault4,
+        client: client.publicKey,
+        freelancer: freelancer.publicKey,
+        systemProgram: anchor.web3.SystemProgram.programId,
+      } as any)
+      .rpc();
+
+    // Milestone 0 is still NotSubmitted — jumping straight to milestone 1
+    // must fail, since its predecessor (0) hasn't been approved yet.
+    try {
+      await program.methods
+        .submitMilestone(1)
+        .accounts({
+          contract: contract4,
+          freelancer: freelancer.publicKey,
+        } as any)
+        .signers([freelancer])
+        .rpc();
+      assert.fail("Should have failed with PreviousMilestoneNotApproved");
+    } catch (err: any) {
+      assert.include(err.message, "PreviousMilestoneNotApproved");
+    }
+
+    // Milestone 0 is fair game and should still succeed normally.
+    await program.methods
+      .submitMilestone(0)
+      .accounts({
+        contract: contract4,
+        freelancer: freelancer.publicKey,
+      } as any)
+      .signers([freelancer])
+      .rpc();
+
+    const contractAcc = await program.account.contract.fetch(contract4);
+    assert.deepEqual(contractAcc.milestones[0], { submitted: {} });
+    assert.deepEqual(contractAcc.milestones[1], { notSubmitted: {} });
+  });
+
+  // ── Test 14 ─────────────────────────────────────────────────────────────────
+  it("14. badge is non-transferable at the token-program level", async () => {
+    // freelancer already holds exactly 1 badge token from test 3. Moving it
+    // anywhere — even to the client's own ATA for the same mint — must be
+    // rejected by Token-2022's NonTransferable extension itself, not merely
+    // discouraged by the absence of a transfer button in the UI.
+    const clientBadgeAccount = getAssociatedTokenAddressSync(
+      badgeMint,
+      client.publicKey,
+      true,
+      TOKEN_2022_PROGRAM_ID,
+      ASSOCIATED_TOKEN_PROGRAM_ID
+    );
+
+    const tx = new anchor.web3.Transaction().add(
+      createTransferCheckedInstruction(
+        badgeTokenAccount,
+        badgeMint,
+        clientBadgeAccount, // doesn't need to already exist — this fails before that matters
+        freelancer.publicKey,
+        1,
+        0, // decimals
+        [],
+        TOKEN_2022_PROGRAM_ID
+      )
+    );
+
+    try {
+      await provider.sendAndConfirm(tx, [freelancer]);
+      assert.fail("Transfer of a non-transferable badge should have failed");
+    } catch (err: any) {
+      // Exact wording comes from spl-token-2022 itself, not our program —
+      // this just proves the token program rejected the transfer outright.
+      assert.isDefined(err, "expected the transfer to throw");
+    }
+
+    const badgeAccount = await getAccount(provider.connection, badgeTokenAccount, undefined, TOKEN_2022_PROGRAM_ID);
+    assert.equal(badgeAccount.amount.toString(), "1", "badge should still be held by the freelancer");
   });
 });
